@@ -1,0 +1,12 @@
+<mvc:View controllerName="ns.sapui5.controller.App"
+xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" id="_IDGenView1">
+
+<Text id="_IDGenText1" text="Hola mundillo"> </Text>
+<Button id="_IDGenButton1" text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
+<Input id="_IDGenInput1" value="{/recipient/name}"></Input>
+
+<Input id="_IDGenInput2" value="{/recipient/city}" 
+                            valueLiveUpdate="true" 
+                            description="Bienvenido a {/recipient/city}" width= "60%"> </Input>
+
+</mvc:View>
