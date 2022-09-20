@@ -1,0 +1,44 @@
+{
+    "Invoices": [
+        {
+            "ProductName" : "HDD Samsung",
+            "Quantity" : 21,
+            "ExtendedPrice" : 872000,
+            "ShipperName" : "Fun inc",
+             "ShippedDate": "2015-04-01T00:00:00",
+            "Status": "A"
+        },
+        {
+            "ProductName": "Display JBC",
+            "Quantity": 12,
+            "ExtendedPrice": 845.2340,
+            "ShipperName": "Acme",
+            "ShippedDate": "2015-02-18T00:00:00",
+            "Status": "B"
+        },
+        {
+            "ProductName": "RAM 2Gb",
+            "Quantity": 3,
+            "ExtendedPrice": 6.8500,
+            "ShipperName": "LG",
+            "ShippedDate": "2015-03-02T00:00:00",
+            "Status": "B"
+        },
+        {
+            "ProductName": "Intel core i7",
+            "Quantity": 3,
+            "ExtendedPrice": 8.8000,
+            "ShipperName": "Acme",
+            "ShippedDate": "2015-04-01T00:00:00",
+            "Status": "C"
+        },
+        {
+            "ProductName": "AMD Radeon RX580",
+            "Quantity": 1,
+            "ExtendedPrice": 2.71212,
+            "ShipperName": "Fun inc",
+            "ShippedDate": "2015-01-27T00:00:00",
+            "Status": "A"
+        }
+    ]
+}

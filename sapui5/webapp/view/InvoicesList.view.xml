@@ -1,0 +1,46 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="ns.sapui5.controller.InvoicesList">
+    <List   id="_IDGenList1" 
+            headerText="{i18n>InvoicesListTitle}" 
+            class="sapUiResposiveMargin" 
+            width="auto" 
+            items="{ path: 'invoicesLocal>/Invoices',
+                     sorter: { path: 'ShipperName',
+                               group:  true 
+                              }
+                    }">
+        <headerToolbar>
+        <Toolbar id="_IDGenToolbar1">
+        <Title id="_IDGenTitle1" text="{i18n>InvoicesListTitle}"/>
+        <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+        <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices"  ></SearchField>
+        </Toolbar>
+        </headerToolbar>
+        <items id="_IDGenItems1">
+            <!-- number con 2 partes valor /moneda desde controlador
+                  con formatOption se formatea para no mostrar la unidad con false
+                  con numberUnit se muentra la unidad de medida en la parte de abajo
+                  {= se usa binding expression para evaluar una condicion} 
+                  con formatter se llama la funcion desde el controlador y desde hay desde el js InvoiceFormatter.js
+                  se llama el alias formatterC del controller-->
+            <ObjectListItem
+                id="_IDGenObjectListItem1"
+                title="{invoicesLocal>Quantity} x {invoicesLocal>ProductName}"
+                number="{ parts : [ {path: 'invoicesLocal>ExtendedPrice' },
+                                                {path:  'currency>/eur'} 
+                                              ],
+                                              type: 'sap.ui.model.type.Currency' ,
+                                              formatOptions:{
+                                                  showMeasure : false  
+                                              }   
+                                    }"
+                numberUnit="{currency>/usd}"
+                numberState="{= ${invoicesLocal>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
+            >
+                <firstStatus>
+                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'invoicesLocal>Status',
+                                                                  formatter : '.formatterC.InvoiceStatus'}" />
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
+</mvc:View>
