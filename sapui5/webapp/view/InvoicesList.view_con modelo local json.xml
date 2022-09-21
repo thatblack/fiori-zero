@@ -3,7 +3,7 @@
             headerText="{i18n>InvoicesListTitle}" 
             class="sapUiResposiveMargin" 
             width="auto" 
-            items="{ path: 'northwind_Int>/Invoices',
+            items="{ path: 'invoicesLocal>/Invoices',
                      sorter: { path: 'ShipperName',
                                group:  true 
                               }
@@ -24,8 +24,8 @@
                   se llama el alias formatterC del controller-->
             <ObjectListItem
                 id="_IDGenObjectListItem1"
-                title="{northwind_Int>Quantity} x {northwind_Int>ProductName}"
-                number="{ parts : [ {path: 'northwind_Int>ExtendedPrice' },
+                title="{invoicesLocal>Quantity} x {invoicesLocal>ProductName}"
+                number="{ parts : [ {path: 'invoicesLocal>ExtendedPrice' },
                                                 {path:  'currency>/eur'} 
                                               ],
                                               type: 'sap.ui.model.type.Currency' ,
@@ -34,13 +34,12 @@
                                               }   
                                     }"
                 numberUnit="{currency>/usd}"
-                numberState="{= ${northwind_Int>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
+                numberState="{= ${invoicesLocal>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
             >
-            <!-- se comentarea porque en la odata de northwind_Int no esta este estatus
                 <firstStatus>
-                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'Invoices>Status',
+                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'invoicesLocal>Status',
                                                                   formatter : '.formatterC.InvoiceStatus'}" />
-                </firstStatus>  -->
+                </firstStatus>
             </ObjectListItem>
         </items>
     </List>

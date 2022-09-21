@@ -25,8 +25,8 @@
           "odataVersion": "2.0"
         }
       },
-      "Northwind.svc": {
-        "uri": "NorthWind/V3/Northwind/Northwind.svc/",
+      "mainOData": {
+        "uri": "V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",
@@ -88,8 +88,9 @@
         "type": "sap.ui.model.json.JSONModel",
         "uri": "Invoices.json"
       },
-      "": {
-        "dataSource": "Northwind.svc",
+      "northwind_Int": {
+        "_comment": "modelo desde destination, si se cambia el datasouce se debe actualizar tambien en datasources arriba",
+        "dataSource": "mainOData",
         "preload": true,
         "settings": {
           "defaultBindingMode": "TwoWay",
