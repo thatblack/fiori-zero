@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: ns.sapui5
+  name: project1
 type: application
 server:
   customMiddleware:
@@ -16,7 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-        -   path: /V2
+          - path: /V2
             url: https://services.odata.org
             destination: Northwind
     - name: fiori-tools-appreload
@@ -28,5 +28,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: ns.sapui5
+        component: project1
         ui5Theme: sap_horizon

@@ -1,7 +1,7 @@
 {
-  "_version": "1.40.0",
+  "_version": "1.42.0",
   "sap.app": {
-    "id": "ns.sapui5",
+    "id": "project1",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,18 +12,17 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.7.3",
-      "toolsId": "de7840b8-75ae-4a56-b331-75e803ad1d55"
+      "version": "1.7.4",
+      "toolsId": "07eea384-db2e-4ce4-a493-931dfb211f54"
     },
     "dataSources": {
-
-      "mainOData": {
+      "mainService": {
         "uri": "/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
-            "annotations": [],
-          "odataVersion": "2.0",
-          "localUri": "localService/metadata.xml"
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
         }
       }
     }
@@ -45,12 +44,6 @@
     }
   },
   "sap.ui5": {
-    "rootView": {
-      "viewName": "ns.sapui5.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
-    },
     "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.102.1",
@@ -73,21 +66,13 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "ns.sapui5.i18n.i18n"
+          "bundleName": "project1.i18n.i18n"
         }
       },
-      "invoicesLocal": {
-        "_comment": "modelo local en archivo json Invoices.json",
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "Invoices.json"
-      },
-      "northwind_Int": {
-        "_comment": "modelo desde destination, si se cambia el datasouce se debe actualizar tambien en datasources arriba",
-        "dataSource": "mainOData",
+      "": {
+        "dataSource": "mainService",
         "preload": true,
-        "settings": {
-
-        }
+        "settings": {}
       }
     },
     "resources": {
@@ -102,29 +87,35 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "ns.sapui5.view",
+        "viewPath": "project1.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "RouteApp",
+          "name": "RouteView1",
           "pattern": ":?query:",
           "target": [
-            "TargetApp"
+            "TargetView1"
           ]
         }
       ],
       "targets": {
-        "TargetApp": {
+        "TargetView1": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App" 
+          "viewId": "View1",
+          "viewName": "View1"
         }
       }
+    },
+    "rootView": {
+      "viewName": "project1.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
     }
   }
 }
