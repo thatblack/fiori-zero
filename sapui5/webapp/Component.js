@@ -35,13 +35,17 @@ sap.ui.define([
                 this.setModel(Models.createRecipient());
 
                 //set i18n model
-                var i18nModel = new ResourceModel({
-                    bundleName: "ns.sapui5.i18n.i18n"
-                });
-                this.setModel(i18nModel, "i18n");
+                //var i18nModel = new ResourceModel({
+                //    bundleName: "ns.sapui5.i18n.i18n"
+                //});
+                //this.setModel(i18nModel, "i18n");
+                //   se crga en i18 por el manifest en el model
 
                 //se instancia el objeto de dialogo y se le envia el controlador actual que se este usando
                 this._helloDialog = new HelloDialog(this.getRootControl());
+
+                // create the views based on the url/hash(pateer en manifest)
+                this.getRouter().initialize();
             },
 
             exit : function(){

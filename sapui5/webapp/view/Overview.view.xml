@@ -1,0 +1,15 @@
+<mvc:View controllerName="ns.sapui5.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" id="Overview" displayBlock="true">
+    <Page id="_IDGenPage1" title="{i18n>appTitle}">
+        <headerContent>
+            <Button id="_IDGenButton8" icon="sap-icon://address-book" text="{i18n>showHelloDialogHeader}" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd" />
+        </headerContent>
+        <!-- se carga la vista HelloPanel -->
+        <content>
+            <mvc:XMLView id="_IDGenXMLView1" viewName="ns.sapui5.view.HelloPanel" />
+        </content>
+        <!-- se carga la vista con binding  -->
+        <content>
+            <mvc:XMLView id="_IDGenXMLView2" viewName="ns.sapui5.view.InvoicesList" />
+        </content>
+    </Page>
+</mvc:View>

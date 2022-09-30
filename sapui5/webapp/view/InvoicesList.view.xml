@@ -15,7 +15,7 @@
         <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices"  ></SearchField>
         </Toolbar>
         </headerToolbar>
-        <items id="_IDGenItems1">
+        <items >
             <!-- number con 2 partes valor /moneda desde controlador
                   con formatOption se formatea para no mostrar la unidad con false
                   con numberUnit se muentra la unidad de medida en la parte de abajo
@@ -35,6 +35,7 @@
                                     }"
                 numberUnit="{currency>/usd}"
                 numberState="{= ${northwind_Int>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
+                type="Navigation" press="navigateToDetails"
             >
             <!-- se comentarea porque en la odata de northwind_Int no esta este estatus
                 <firstStatus>

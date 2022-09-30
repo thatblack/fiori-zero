@@ -57,6 +57,16 @@ sap.ui.define([
                 oBinding.filter(aFilter);
 
 
+            },
+            navigateToDetails : function(oEvent){
+                
+                //se obtiene el item el contexto del modelo y se pasa al parametro onvoicePath del router del manifest
+                // como una parte del uri y se le quita el 1er caracter "/"
+                const oItem = oEvent.getSource();
+                const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Details",{
+                    invoicePath : window.encodeURIComponent(oItem.getBindingContext("northwind_Int").getPath().substr(1))
+                });
             }
         })
     });

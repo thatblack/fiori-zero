@@ -1,0 +1,17 @@
+<mvc:View controllerName="ns.sapui5.controller.Details" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:wt="ns.sapui5.control" id="detailsView" displayBlock="true">
+    <Page id="_IDGenPage1" title="{i18n>detailsPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <ObjectHeader id="_IDGenObjectHeader1" title="{northwind_Int>Quantity} x {northwind_Int>ProductName}">
+            <attributes>
+                <ObjectAttribute id="_IDGenObjectAttribute1" text="{northwind_Int>ShipName}" />
+                <ObjectAttribute id="_IDGenObjectAttribute2" text="{northwind_Int>ShipAddress}" />
+                <ObjectAttribute id="_IDGenObjectAttribute3" text="{northwind_Int>ShipCity}" />
+                <ObjectAttribute id="_IDGenObjectAttribute4" text="{northwind_Int>ShipRegion}" />
+                <ObjectAttribute id="_IDGenObjectAttribute5" text="{northwind_Int>ShipPostalCode}" />
+                <ObjectAttribute id="_IDGenObjectAttribute6" text="{northwind_Int>ShipCountry}" />
+                <ObjectAttribute id="_IDGenObjectAttribute7" text="{northwind_Int>CustomerID}" />
+                <ObjectAttribute id="_IDGenObjectAttribute8" text="{northwind_Int>CustomerName}" />
+            </attributes>
+        </ObjectHeader>
+        <wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange"/>
+    </Page>
+</mvc:View>
