@@ -1,9 +1,9 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="ns.sapui5.controller.InvoicesList">
-    <Table   id="_IDGenList1" 
+    <List   id="_IDGenList1" 
             headerText="{i18n>InvoicesListTitle}" 
             class="sapUiResposiveMargin" 
             width="auto" 
-            items="{ path: 'invoicesLocal>/Invoices',
+            items="{ path: 'northwind_Int>/Invoices',
                      sorter: { path: 'ShipperName',
                                group:  true 
                               }
@@ -15,9 +15,7 @@
         <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices"  ></SearchField>
         </Toolbar>
         </headerToolbar>
-       
-
-        <items id="_IDGenItems1">
+        <items >
             <!-- number con 2 partes valor /moneda desde controlador
                   con formatOption se formatea para no mostrar la unidad con false
                   con numberUnit se muentra la unidad de medida en la parte de abajo
@@ -26,8 +24,8 @@
                   se llama el alias formatterC del controller-->
             <ObjectListItem
                 id="_IDGenObjectListItem1"
-                title="{invoicesLocal>Quantity} x {invoicesLocal>ProductName}"
-                number="{ parts : [ {path: 'invoicesLocal>ExtendedPrice' },
+                title="{northwind_Int>Quantity} x {northwind_Int>ProductName}"
+                number="{ parts : [ {path: 'northwind_Int>ExtendedPrice' },
                                                 {path:  'currency>/eur'} 
                                               ],
                                               type: 'sap.ui.model.type.Currency' ,
@@ -36,13 +34,15 @@
                                               }   
                                     }"
                 numberUnit="{currency>/usd}"
-                numberState="{= ${invoicesLocal>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
+                numberState="{= ${northwind_Int>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
+                type="Navigation" press="navigateToDetails"
             >
+            <!-- se comentarea porque en la odata de northwind_Int no esta este estatus
                 <firstStatus>
-                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'invoicesLocal>Status',
+                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'Invoices>Status',
                                                                   formatter : '.formatterC.InvoiceStatus'}" />
-                </firstStatus>
+                </firstStatus>  -->
             </ObjectListItem>
         </items>
-    </Table>
+    </List>
 </mvc:View>

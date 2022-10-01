@@ -1,5 +1,5 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="ns.sapui5.controller.InvoicesList">
-    <List   id="_IDGenList1" 
+    <Table   id="_IDGenList1" 
             headerText="{i18n>InvoicesListTitle}" 
             class="sapUiResposiveMargin" 
             width="auto" 
@@ -15,34 +15,61 @@
         <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices"  ></SearchField>
         </Toolbar>
         </headerToolbar>
-        <items >
+
+        <columns>
+
+            <Column id="_IDGenColumn1"  hAlign="End" minScreenWidth="Small" demandPopin="true" width="4em">
+                <Text id="_IDGenText1" text="{i18n>columnQuantity}"></Text>
+            </Column>
+            <Column id="_IDGenColumn2">
+                <Text id="_IDGenText2" text="{i18n>columnName}"></Text>
+            </Column>
+            <Column id="_IDGenColumn3" minScreenWidth="Small" demandPopin="true">
+                <Text id="_IDGenText3" text="{i18n>columnStatus}"></Text>
+            </Column>
+            <Column id="_IDGenColumn4"  minScreenWidth="Table">
+                <Text id="_IDGenText4" text="{i18n>columnSupplier}"></Text>
+            </Column>
+            <Column id="_IDGenColumn5" hAlign="End">
+                <Text id="_IDGenText5" text="{i18n>columnPrice}"></Text>
+            </Column>
+
+        </columns>
+
+
             <!-- number con 2 partes valor /moneda desde controlador
                   con formatOption se formatea para no mostrar la unidad con false
                   con numberUnit se muentra la unidad de medida en la parte de abajo
                   {= se usa binding expression para evaluar una condicion} 
                   con formatter se llama la funcion desde el controlador y desde hay desde el js InvoiceFormatter.js
                   se llama el alias formatterC del controller-->
-            <ObjectListItem
-                id="_IDGenObjectListItem1"
-                title="{northwind_Int>Quantity} x {northwind_Int>ProductName}"
-                number="{ parts : [ {path: 'northwind_Int>ExtendedPrice' },
-                                                {path:  'currency>/eur'} 
-                                              ],
-                                              type: 'sap.ui.model.type.Currency' ,
-                                              formatOptions:{
-                                                  showMeasure : false  
-                                              }   
-                                    }"
-                numberUnit="{currency>/usd}"
-                numberState="{= ${northwind_Int>ExtendedPrice}  > 50 ? 'Success' : 'Error' }"
-                type="Navigation" press="navigateToDetails"
-            >
-            <!-- se comentarea porque en la odata de northwind_Int no esta este estatus
-                <firstStatus>
-                    <ObjectStatus id="_IDGenObjectStatus1" text="{path: 'Invoices>Status',
-                                                                  formatter : '.formatterC.InvoiceStatus'}" />
-                </firstStatus>  -->
-            </ObjectListItem>
-        </items>
-    </List>
+        <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="navigateToDetails">
+        <cells>
+					<ObjectNumber id="_IDGenObjectNumber1" number="{northwind_Int>Quantity}" emphasized="false"/>
+					
+                    <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{northwind_Int>ProductName}"/>
+					<Text id="_IDGenText6" 
+                        text="{
+						path: 'northwind_Int>Status',
+						formatter: '.formatterC.InvoiceStatus'
+					}"/>
+
+					<Text id="_IDGenText7" text="{northwind_Int>ShipperName}"/>
+
+					<ObjectNumber id="_IDGenObjectNumber2"
+						number="{
+							parts: [{path: 'northwind_Int>ExtendedPrice'},
+                                   {path: 'view>/currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {
+								showMeasure: false
+							     }}"
+						unit="{view>/currency}"
+						state="{= ${northwind_Int>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+
+		</cells>
+        </ColumnListItem>
+
+  
+    </Table>
 </mvc:View>

@@ -24,7 +24,7 @@ sap.ui.define([
                     case 'C':
                         return  oBundle.getText("InvoiceStatusC");
                     default:
-                        return sStatus;
+                        return  oBundle.getText("InvoiceStatusX");
                 }
 
 
